@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="dialog-wrap" v-if="isShow">
-          <div class="dialog-cover" @click="closeMyself()">
+          <div class="dialog-cover">
               
           </div>
           <div class="dialog-content">
