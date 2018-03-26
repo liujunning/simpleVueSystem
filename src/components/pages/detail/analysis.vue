@@ -26,12 +26,17 @@
                   有效时间：
               </div>
               <div class="sales-board-line-right">
-                  
+                  <vChooser :selections="timeList" @onChange="onParamChange($event)">
+
+                  </vChooser>
               </div>
           </div>
           <div class="sales-board-line">
               <div class="sales-board-line-left">
                   产品版本：
+              </div>
+              <div  class="sales-board-line-right">
+                  <VMulChooser :selections="timeList"></VMulChooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -78,9 +83,13 @@
 </template>
 <script>
     import vselection from '../../base/selection'
+    import vChooser from '../../base/chooser'
+    import VMulChooser from '../../base/multiplyChooser'
     export default{
         components:{
-            vselection
+            vselection,
+            vChooser,
+            VMulChooser
         },
         data(){
             return{
@@ -97,7 +106,30 @@
                     label: '专家版',
                     value: 2
                     }
+                ],
+                timeList:[
+                    {
+                        label: '半年',
+                        value: 0
+                    },
+                    {
+                        label: '一年',
+                        value: 1
+                    },
+                    {
+                        label: '三年',
+                        value: 2
+                    },
+                    {
+                        label:'百年',
+                        value:'100'
+                    }
                 ]
+            }
+        },
+        methods:{
+            onParamChange(joke){
+                //console.log(joke)
             }
         }
     }

@@ -23,15 +23,39 @@
         </div>
       </div>
       <p></p>
+      <div style="width:200px;height:200px;text-align:center">
+          {{ count }}
+      </div>
+      <button @click="increment()">
+        点击增加
+      </button>
+      <button @click="reducement()">
+        点击减少
+      </button>
     </div>
   </div>
 </template>
 <script>
+  //import {mapGetters,mapActions} from 'vuex';
     export default{
       methods:{
         login(){
-          this.$router.push('')
+           this.$router.push({path: '/'})
+        },
+        increment(){
+          this.$store.commit('incrementment')
+        },
+        reducement(){
+          this.$store.commit('reducement')
         }
+      },
+      computed:{
+          count(){
+              return this.$store.state.count
+          }
+      },
+      mounted(){
+          console.log(this.$store)
       }
     }
 </script>

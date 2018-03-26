@@ -3,16 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Vuex from 'vuex'
 //require('./mock/mock.js')
+
+
+//引入vuex
+import store from './store/test.js';
 
 
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';    // 使用 CSS
 import './assets/css/style.css';
-//import pageIndex from ''
 
 Vue.use(iView);
-
+Vue.use(Vuex)
 
 Vue.config.productionTip = false
 
@@ -20,6 +24,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

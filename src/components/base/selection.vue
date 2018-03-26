@@ -41,7 +41,7 @@
             chooseSelection(index){
                 this.nowIndex = index;
                 this.isDrop = false;
-                thi.$emit('OnChange',this.selections[this.nowIndex])
+                this.$emit('OnChange',this.selections[this.nowIndex])
             }
         },
         created(){

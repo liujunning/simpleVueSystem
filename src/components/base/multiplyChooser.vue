@@ -1,7 +1,7 @@
 <template>
   <div  class="chooser-component">
-      <ul  class="chooser-list">
-          <li v-for="(item,index) in selections" :key="item.value" @click="chosenSelection(index)" :class="{active:index === nowIndex}" :title = "item.label">
+      <ul class="chooser-list">
+          <li v-for="(item,index) in selections" :key="item.value" @click="toggleSelection(index)" :class="{active:checkActive(index)}">
               {{ item.label }}
           </li>
       </ul>
@@ -20,18 +20,32 @@
         },
         data(){
             return {
-                nowIndex:0
+                nowIndexes:[0]
             }
         },
         methods:{
-            chosenSelection(index){
-                this.nowIndex = index;
-                console.log(this.selections[index])
-                this.$emit('onChange',this.selections[index])
+            toggleSelection(index){
+                if(this.nowIndexes.indexOf(index) === -1){
+                    this.nowIndexes.push(index)
+                }else{
+                    this.nowIndexes = _.remove(this.nowIndexes,(idx)=>{
+                        return idx != index;
+                    })
+                }
+
+                let nowObjArray = _.map(this.nowIndexes,(idx)=>{
+                    return this.selections[idx]
+                })
+                thi.$emit('onChange',nowObjArray)
+            },
+            checkActive(index){
+                console.log(index)
+                return this.nowIndexes.indexOf(index) !== -1
             }
         }
     }
 </script>
+
 <style scoped>
 .chooser-component {
   position: relative;

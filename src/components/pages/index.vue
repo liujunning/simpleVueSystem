@@ -42,7 +42,7 @@
   </div>
 </template>
 <script>
-    import data from '@/mock/mock';
+    import datas from '@/mock/mock';
     import axios from '@/api/axios';
     import slideShow from '@/components/resuseGroup/slideShow'
     export default {
