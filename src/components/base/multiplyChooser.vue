@@ -36,10 +36,9 @@
                 let nowObjArray = _.map(this.nowIndexes,(idx)=>{
                     return this.selections[idx]
                 })
-                thi.$emit('onChange',nowObjArray)
+                this.$emit('onChange',nowObjArray)
             },
             checkActive(index){
-                console.log(index)
                 return this.nowIndexes.indexOf(index) !== -1
             }
         }
