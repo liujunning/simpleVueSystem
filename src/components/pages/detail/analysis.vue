@@ -10,7 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
-                <VCounter :max='20' :min='2'></VCounter>
+                <VCounter :max='9' :min='2'></VCounter>
               </div>
           </div>
           <div class="sales-board-line">

@@ -66,7 +66,7 @@ const myrouters = new Router({
             key:"asdsd",
             auth:true,
             tag:true
-          },
+          }
         }
       ]
     }
@@ -77,11 +77,14 @@ let flag = true;
 
 myrouters.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)){
-    if(store.state.count==6){
-      next({
-        path:'/login/',
-        query: { redirect: to.fullPath }
-      })
+    if(store.state.count==6){   //登录拦截
+      // next({
+      //   path:'/login/',
+      //   query: { redirect: to.fullPath }
+      // })
+      console.log('------------------')
+      console.log(to)
+      next()
     }else{
       next()
     }

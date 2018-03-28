@@ -1,12 +1,12 @@
 <template>
   <div  class="counter-component">
-      <div  class="counter-btn">
+      <div  class="counter-btn" @click="minus">
           -
       </div>
       <div  class="counter-show">
-          <input type="text" v-model="number">
+          <input type="text" v-model="number" @keyup = 'fixNumber'>
       </div>
-      <div class="counter-btn">
+      <div class="counter-btn" @click="add">
           +  
       </div>
   </div>
@@ -21,6 +21,35 @@
             min:{
                 type:Number,
                 default:1
+            }
+        },
+        data(){
+            return {
+                number:this.min
+            }
+        },
+        methods:{
+            fixNumber(){
+                let fix;
+                if(typeof this.number === 'string'){
+                    fix = Number(this.number.replace(/\D/g,''))
+                }else{
+                    fix = this.number
+                }
+
+                this.number = fix;
+            },
+            minus(){
+                if(this.number<=this.min){
+                    return
+                }
+                this.number --
+            },
+            add(){
+                if(this.number>=this.max){
+                    return
+                }
+                this.number ++;
             }
         }
     }
