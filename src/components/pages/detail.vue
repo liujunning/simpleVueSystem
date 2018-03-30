@@ -12,7 +12,10 @@
     </div>
     <div class="detail-right">
       <keep-alive>
-        <router-view></router-view>
+      <router-view name="HelloWorld" class="two"></router-view>
+    </keep-alive>  
+      <keep-alive>
+         <router-view name="DetailCouPageJack" class="one"></router-view>
       </keep-alive>
     </div>
   </div>

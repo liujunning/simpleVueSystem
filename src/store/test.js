@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { mapState } from 'vuex'
 Vue.use(Vuex)
 
 // const store = new Vuex.Store({
@@ -12,9 +13,11 @@ Vue.use(Vuex)
 //         }
 //     }
 // })
-
+// let jcVal = window.sessionStorage.setItem("moki",5);
+// let mark = window.sessionStorage.getItem("moki")
 const state = {
-    count:6
+    count:[1,2,3],
+    numb:9
 }
 
 
@@ -38,6 +41,10 @@ const mutations = {
 }
 
 
+
+const actions = {
+    
+}
 
 const store = new Vuex.Store({
     state,

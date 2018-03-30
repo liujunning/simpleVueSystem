@@ -7,8 +7,12 @@ import IndexPage from '@/components/pages/index'
 
 import DetailAnaPage from '@/components/pages/detail/analysis'
 import DetailCouPage from '@/components/pages/detail/count'
-import DetailForPage from '@/components/pages/detail/forecast'
+//import DetailForPage from '@/components/pages/detail/forecast'
+
+
 import DetailPubPage from '@/components/pages/detail/publish'
+
+import tuhua from '@/components/tuhua'
 Vue.use(Router)
 import store from '../store/test.js';
 const myrouters = new Router({
@@ -22,7 +26,12 @@ const myrouters = new Router({
     {
       path: '/',
       name: 'Layouts',
-      component: Layouts,
+      component:Layouts,
+      // components:{
+      //   default:Layouts,
+      //   Layouts:Layouts,
+      //   HelloWorld:HelloWorld
+      // } ,
       redirect:'/IndexPage',
       meta:{
         requireAuth: true,
@@ -46,13 +55,18 @@ const myrouters = new Router({
                 key:"神明",
                 auth:true,
                 tag:true
-              }
+              },
+              props:true
             },{
               path: 'count',
-              component: DetailCouPage
+              components: {
+                default:DetailCouPage,
+                DetailCouPageJack:DetailCouPage,
+                HelloWorld:HelloWorld
+              }
             },{
               path: 'forecast',
-              component: DetailForPage
+              component: resolve=>require(["@/components/pages/detail/forecast"],resolve)
             },{
               path: 'publish',
               component: DetailPubPage
@@ -69,8 +83,24 @@ const myrouters = new Router({
           }
         }
       ]
+    },
+    {
+      path:'/tuhua',
+      name:'tuhuaList',
+      component:tuhua
+    },{
+      path:'/HelloWorld',
+      component:HelloWorld
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    console.log(savedPosition)
+    if (savedPosition) {
+     // return savedPosition
+    } else {
+      //return { x: 0, y: 0 }
+    }
+  }
 })
 
 let flag = true;
@@ -82,8 +112,6 @@ myrouters.beforeEach((to, from, next) => {
       //   path:'/login/',
       //   query: { redirect: to.fullPath }
       // })
-      console.log('------------------')
-      console.log(to)
       next()
     }else{
       next()
@@ -92,6 +120,9 @@ myrouters.beforeEach((to, from, next) => {
     next()
   }
 })
+
+
+
 
 export default myrouters;
 

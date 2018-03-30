@@ -84,8 +84,24 @@
             }
         },
         mounted(){
-            console.log('--------')
-            console.log(_.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 }))
+            
+        },
+        beforeRouteEnter(to,from,next){
+          next(vm=>{
+              
+          })
+        },
+        beforeRouteUpdate (to, from, next){
+          next()
+        },
+        beforeRouteLeave(to,from,next){
+            // const answer = window.confirm("确定保存再离开")
+            // if(answer){
+            //     next()
+            // }else{
+            //     next(false)
+            // }
+            next()
         }
     }
 </script>

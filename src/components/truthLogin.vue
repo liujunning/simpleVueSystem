@@ -23,7 +23,7 @@
         </div>
       </div>
       <p></p>
-      <div style="width:200px;height:200px;text-align:center">
+      <div style="width:200px;height:200px;text-align:center;border:2px solid blue;margin-left:100px;font-size:19px;line-height:200px">
           {{ count }}
       </div>
       <button @click="increment()">
@@ -37,6 +37,8 @@
 </template>
 <script>
   //import {mapGetters,mapActions} from 'vuex';
+import { mapState } from 'vuex';
+
     export default{
       methods:{
         login(){
@@ -50,12 +52,16 @@
         }
       },
       computed:{
-          count(){
-              return this.$store.state.count
-          }
+        // i am batman
+          // strike(){
+          //     return this.$store.state.count
+          // }
+           ...mapState([
+             'count'
+           ])
       },
       mounted(){
-          console.log(this.$store)
+        
       }
     }
 </script>

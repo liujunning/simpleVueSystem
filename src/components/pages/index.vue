@@ -3,6 +3,9 @@
      <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
+        <div class="jinqu" @click="enterDraw()">
+              点击进入CANVAS
+        </div>
         
         <div v-for="product in productList">
           <h3>{{ product.title}}</h3>
@@ -163,6 +166,11 @@
         methods:{
           doSth(index){
             
+          },
+          enterDraw(){
+            this.$router.push({
+                    name:'tuhuaList'
+                })
           }
         }
     }
