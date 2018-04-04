@@ -49,28 +49,44 @@
           常量按钮
         </button>
       </div>
+      <div>
+        <button @click="incrementment({ amount:fast })">
+          mapMutations按钮
+        </button>
+      </div>
     </div>
   </div>
 </template>
 <script>
   //import {mapGetters,mapActions} from 'vuex';
-import { mapState,mapGetters } from 'vuex';
+import { mapState,mapGetters,mapMutations } from 'vuex';
 
     export default{
       data(){
         return{
-          timer:''
+          timer:'',
+          fast:89
         }
       },
+      created(){
+        console.log( this.incrementment({ amount: 18 }) )
+        
+      },
+
       methods:{
         login(){
            this.$router.push({path: '/'})
         },
         increment(){
+
+
           this.$store.commit({
             type:'incrementment',
             amount:100
           })
+
+         
+
         },
         reducement(){
 
@@ -86,15 +102,16 @@ import { mapState,mapGetters } from 'vuex';
         },
         chang(){
           this.$store.commit('SOME_MUTATION')
-        }
+        },
+        ...mapMutations([
+          'incrementment'
+        ])
       },
       computed:{
         // i am batman
           // strike(){
           //     return this.$store.state.count
           // }
-
-
            ...mapState([
              'count',
              'numb',
@@ -104,6 +121,8 @@ import { mapState,mapGetters } from 'vuex';
            ...mapGetters({
              double:'doneTodosCount'
            }
+
+
              
            )
           
@@ -111,7 +130,7 @@ import { mapState,mapGetters } from 'vuex';
       },
       mounted(){
         //getters 调用  
-        console.log(this.$store.getters.doneTodosCount)
+       // console.log(this.$store.getters.doneTodosCount)
         
       }
     }

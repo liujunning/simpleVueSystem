@@ -5,18 +5,6 @@ Vue.use(Vuex)
 
 import { SOME_MUTATION } from'./mutation-type.js'
 
-// const store = new Vuex.Store({
-//     state:{
-//         count:0
-//     },
-//     mutations:{
-//         increment(state){
-//             state.count++;
-//         }
-//     }
-// })
-// let jcVal = window.sessionStorage.setItem("moki",5);
-// let mark = window.sessionStorage.getItem("moki")
 const state = {
     count:[1,2,3],
     numb:9,
@@ -44,7 +32,7 @@ const getters ={
 
 
 const mutations = {
-    incrementment( state ,payload){
+    incrementment( state,payload ){
         state.numb+= payload.amount;
     },
     reducement( state ){
