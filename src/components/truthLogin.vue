@@ -46,20 +46,26 @@
       </button>
       <div>
         <button @click="chang()">
-          常量按钮
+          常 量 按 钮
         </button>
       </div>
       <div>
-        <button @click="incrementment({ amount:fast })">
-          mapMutations按钮
+        <button @click="incrementment({amount:fast})">
+          mapMutations 按钮
         </button>
+      </div>
+      <div>
+        <button @click="actionHand()">Actions 按钮</button>
+      </div>
+      <div>
+        <button @click="actionIncrement({amount:60.01*10/10})">mapActions 按钮</button>
       </div>
     </div>
   </div>
 </template>
 <script>
   //import {mapGetters,mapActions} from 'vuex';
-import { mapState,mapGetters,mapMutations } from 'vuex';
+import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
 
     export default{
       data(){
@@ -69,7 +75,7 @@ import { mapState,mapGetters,mapMutations } from 'vuex';
         }
       },
       created(){
-        console.log( this.incrementment({ amount: 18 }) )
+          
         
       },
 
@@ -105,6 +111,15 @@ import { mapState,mapGetters,mapMutations } from 'vuex';
         },
         ...mapMutations([
           'incrementment'
+        ]),
+        actionHand(){
+          this.$store.dispatch({
+            type:'actionIncrement',
+            amount:60
+          })
+        },
+        ...mapActions([
+          'actionIncrement'
         ])
       },
       computed:{

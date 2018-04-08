@@ -1,6 +1,6 @@
 <template>
   <div>
-      大乘一帆引
+        一蓑烟雨任平生
   </div>
 </template>
 <script>

@@ -11,11 +11,14 @@
       </div>
     </div>
     <div class="detail-right">
-      <keep-alive>
+      <!-- <keep-alive>
       <router-view name="HelloWorld" class="two"></router-view>
     </keep-alive>  
       <keep-alive>
          <router-view name="DetailCouPageJack" class="one"></router-view>
+      </keep-alive> -->
+      <keep-alive>
+         <router-view></router-view>
       </keep-alive>
     </div>
   </div>
@@ -62,8 +65,7 @@ export default {
     }
   },
   mounted(){
-    console.log('----------------');
-    console.log(this.$route);
+    
   },
   methods:{
     joke(){

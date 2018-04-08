@@ -59,11 +59,12 @@ const myrouters = new Router({
               props:true
             },{
               path: 'count',
-              components: {
-                default:DetailCouPage,
-                DetailCouPageJack:DetailCouPage,
-                HelloWorld:HelloWorld
-              }
+              // components: {
+              //   default:DetailCouPage,
+              //   DetailCouPageJack:DetailCouPage,
+              //   HelloWorld:HelloWorld
+              // }
+              component:DetailCouPage
             },{
               path: 'forecast',
               component: resolve=>require(["@/components/pages/detail/forecast"],resolve)
