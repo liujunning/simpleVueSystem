@@ -23,11 +23,13 @@
         </div>
       </div>
       <p></p>
-      <div style="width:200px;height:200px;text-align:center;border:2px solid blue;margin-left:100px;font-size:19px;line-height:200px">
-          {{ count }}
-      </div>
+      <div style="border:2px solid purple;padding:20px;margin-bottom:20px">
+        单独vuex
+        <div style="width:200px;height:200px;text-align:center;border:2px solid blue;margin-left:100px;font-size:19px;line-height:200px">
+          {{ ACount }}
+        </div>
       <div style="width:200px;height:200px;text-align:center;border:4px solid red;margin-left:100px;font-size:19px;line-height:200px">
-          {{ numb }}
+          {{ aNumb }}
       </div>
        <div style="width:200px;height:200px;text-align:center;border:4px solid green;margin-left:100px;font-size:12px;line-height:200px;display:inline-block" v-for="(item,index) in double" :key="item.text">
           {{ item }}
@@ -60,6 +62,9 @@
       <div>
         <button @click="actionIncrement({amount:60.01*10/10})">mapActions 按钮</button>
       </div>
+      </div>
+      
+
     </div>
   </div>
 </template>
@@ -127,14 +132,20 @@ import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
           // strike(){
           //     return this.$store.state.count
           // }
-           ...mapState([
-             'count',
-             'numb',
-             'todos'
-           ]),
+
+
+          //  ...mapState([
+          //    'count',
+          //    'numb',
+          //    'todos'
+          //  ]),
   
+           ...mapState({
+              ACount: state => state.a.count,
+              aNumb: state => state.a.numb,
+            }),
            ...mapGetters({
-             double:'doneTodosCount'
+             double:'doneTodosCountBBB'
            }
 
 
